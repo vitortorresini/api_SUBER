@@ -8,7 +8,7 @@ async function storeTask(request, response ){
         request.body.nome,
     );
 
-    const query = "INSERT INTO suber(email,nome) VALUES(?,?)";
+    const query = "INSERT INTO usuarios(email,nome) VALUES(?,?)";
 
     connection.query(query, params, (err, results) => {
         if (results) {
@@ -25,6 +25,7 @@ async function storeTask(request, response ){
                 .json({
                     success: false,
                     message: "Ops, deu problema",
+                    data: err
                 })
         }
     })
